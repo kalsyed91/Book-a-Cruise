@@ -11,7 +11,7 @@ Project Title: Book a Cruise
 Project Webiste Name: Cruising
 <br />
 <br />
-https://riyazhdholakia.github.io/BookaCruise/ 
+https://kalsyed91.github.io/Book-a-Cruise/
 <br />
 Click link to see our website!
 <br />
