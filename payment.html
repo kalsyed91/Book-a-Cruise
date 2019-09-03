@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel='icon' href='favicon.ico' type='image/x-icon'/>
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="demo.css">
+<style>
+ body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: "Lato";
+    color: white;
+    background-image: url(pics/ocean1.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center; 
+}
+
+h1 {
+  padding-top: 5%;
+	font-weight: 700;
+	font-size: 5em;
+}
+
+.content{
+	text-align: center;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Cruising</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destination_departure.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html" onclick="return logout();">Log Out    <i class="fa fa-user"></i></a></li>
+      </ul>
+    </div>
+  </div>
+ </nav>
+
+ <div class="container">
+ 	<div class="row">
+ 		<div class="col-lg-12">
+ 			<div class="content">
+         <h1><font color=#FFFFFF>Payment</font></h1>
+        
+
+         <div class="creditCardForm">
+           <div>
+             <h2>Cart</h2>
+                <p>Destination: <span id='des'></span> </p>
+                <p>Room: <span id='room'></span></p>
+                <p>Price: <span id='price'></span></p>
+                <p>Dates: <span id='sdate'></span></p>
+                
+           </div>
+          <div class="payment">
+              <form >
+                  <div class="form-group owner">
+                      <label for="owner">Name on Card</label>
+                      <input type="text" class="form-control" id="owner">
+                  </div>
+                  <div class="form-group CVV">
+                      <label for="cvv">CVV</label>
+                      <input type="text" class="form-control" id="cvv">
+                  </div>
+                  <div class="form-group" id="card-number-field">
+                      <label for="cardNumber">Card Number</label>
+                      <input type="text" class="form-control" id="cardNumber">
+                  </div>
+                  <div class="form-group" id="expiration-date">
+                      <label>Expiration Date</label>
+                      <select id="expirationMonth">
+                          <option value="01">January</option>
+                          <option value="02">February </option>
+                          <option value="03">March</option>
+                          <option value="04">April</option>
+                          <option value="05">May</option>
+                          <option value="06">June</option>
+                          <option value="07">July</option>
+                          <option value="08">August</option>
+                          <option value="09">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                      </select>
+                      <select id="expirationYear">
+                          <option value="19"> 2019</option>
+                          <option value="20"> 2020</option>
+                          <option value="21"> 2021</option>
+                          <option value="22"> 2022</option>
+                          <option value="23"> 2023</option>
+                          <option value="24"> 2024</option>
+                      </select>
+                     
+                  </div>
+                  
+                  <div class="form-group" id="credit_cards">
+                      <img src="pics/visa.jpg" id="visa">
+                      <img src="pics/mastercard.jpg" id="mastercard">
+                      <img src="pics/amex.jpg" id="amex">
+                  </div>
+                  <div class="form-group" id="pay-now">
+                      <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+         
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+         <script src="jquery.payform.min.js" charset="utf-8"></script>
+         <script src="script.js"></script>
+
+         <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+         <script>
+              var config = {
+     apiKey: "AIzaSyAmbS9EKpnJRTE5AAnKKgUFMkdDF7KOePk",
+     authDomain: "cruising-23cb7.firebaseapp.com",
+     databaseURL: "https://cruising-23cb7.firebaseio.com",
+     projectId: "cruising-23cb7",
+     storageBucket: "cruising-23cb7.appspot.com",
+     messagingSenderId: "322449955301"
+   };
+   firebase.initializeApp(config);
+   var User;
+   firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    User=user;
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    destination = window.location.search.substr(1);
+        
+         
+          firebase.database().ref('Users/'+user.uid).once('value',function(snp){
+            for(var key in snp.val()){
+              document.getElementById('des').innerHTML=snp.val().destination;
+              var roomType=snp.val().roomType.replace('%20',' ');
+              roomType=roomType.replace('%20',' ');
+              document.getElementById('room').innerHTML=roomType;
+              document.getElementById('price').innerHTML=snp.val().roomPrice;
+              document.getElementById('sdate').innerHTML=snp.val().startDate+" to "+snp.val().endDate ;
+          
+            }
+          })
+    //window.open('index.html', '_self');
+    // ...
+  } else {
+    location.href='login.html';
+    // User is signed out.
+    // ...
+  }});
+           $(function(){
+          
+        })
+        
+         
+</script>
+</body>
+</html>
